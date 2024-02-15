@@ -1,0 +1,22 @@
+<h2>Albums</h2>
+<form ngNoForm>
+<input
+    type="number"
+    step="1"
+    [(ngModel)]="albumId"
+    required
+    name="albumId"
+    min="0" max="99999"
+  />
+</form>
+
+<button type="button" (click)="loadAlbums()">
+    Show
+</button>
+
+<ul *ngIf="albums.length">
+    <li *ngFor="let album of albums">
+      [{{album.id}}] {{album.title}}
+    </li>
+</ul>
+<p *ngIf="!albums.length">No photos</p>
